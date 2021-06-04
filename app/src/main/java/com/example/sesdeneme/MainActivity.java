@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         currentNote = (TextView)findViewById(R.id.text_currentNote);
         text_streak = (TextView)findViewById(R.id.text_streak);
 
-
+        //setting buttons backgrounds to custom and text colors to white
         a.setBackgroundResource(R.drawable.custom_button);
         a.setTextColor(Color.WHITE);
         b.setBackgroundResource(R.drawable.custom_button);
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         f.setTextColor(Color.WHITE);
         random.setBackgroundResource(R.drawable.custom_button);
         random.setTextColor(Color.WHITE);
-
         text_streak.setBackgroundResource(R.drawable.custom_button);
         text_streak.setTextColor(Color.WHITE);
 
@@ -69,14 +68,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        //creating soundPool
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             soundPool = new SoundPool.Builder().setMaxStreams(5).build();
         }
         else{
             soundPool = new SoundPool(5, AudioManager.STREAM_MUSIC,0);
         }
-
+        //initializing notes
         sound_a = soundPool.load(this, R.raw.a3, 1);
         sound_b = soundPool.load(this, R.raw.b3, 1);
         sound_c = soundPool.load(this, R.raw.c3, 1);
@@ -86,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
 
         final int[] notes = {sound_a, sound_b, sound_c, sound_d, sound_e, sound_f};
 
+        /*Plays a random note.
+          -Saves the note in the char note
+         */
         random.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 if(currentNote.getText().toString().equals("A"))
                 {
                     updateStreak( true);
+                    //Changes color to green for 1 second after that changes it to default.
                     a.setBackgroundColor(getResources().getColor(R.color.trueNote));
                     new CountDownTimer(1000, 1000)
                     {
@@ -135,8 +138,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    a.setBackgroundColor(getResources().getColor(R.color.falseNote));
                     updateStreak( false);
+                    //Changes color to red for 1 second after that changes it to default.
+                    a.setBackgroundColor(getResources().getColor(R.color.falseNote));
                     new CountDownTimer(1000, 1000)
                     {
 
@@ -164,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 if(currentNote.getText().toString().equals("B"))
                 {
                     updateStreak( true);
+                    //Changes color to green for 1 second after that changes it to default.
                     b.setBackgroundColor(getResources().getColor(R.color.trueNote));
                     new CountDownTimer(1000, 1000)
                     {
@@ -181,8 +186,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    b.setBackgroundColor(getResources().getColor(R.color.falseNote));
                     updateStreak( false);
+                    //Changes color to red for 1 second after that changes it to default.
+                    b.setBackgroundColor(getResources().getColor(R.color.falseNote));
                     new CountDownTimer(1000, 1000)
                     {
 
@@ -210,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
                 if(currentNote.getText().toString().equals("C"))
                 {
                     updateStreak( true);
+                    //Changes color to red for 1 second after that changes it to default.
                     c.setBackgroundColor(getResources().getColor(R.color.trueNote));
                     new CountDownTimer(1000, 1000)
                     {
@@ -227,8 +234,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    c.setBackgroundColor(getResources().getColor(R.color.falseNote));
                     updateStreak( false);
+                    //Changes color to green for 1 second after that changes it to default.
+                    c.setBackgroundColor(getResources().getColor(R.color.falseNote));
                     new CountDownTimer(1000, 1000)
                     {
 
@@ -258,7 +266,9 @@ public class MainActivity extends AppCompatActivity {
                 if(currentNote.getText().toString().equals("D"))
                 {
                     updateStreak( true);
+
                     d.setBackgroundColor(getResources().getColor(R.color.trueNote));
+                    //Changes color to red for 1 second after that changes it to default.
                     new CountDownTimer(1000, 1000)
                     {
 
@@ -275,8 +285,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    d.setBackgroundColor(getResources().getColor(R.color.falseNote));
                     updateStreak( false);
+                    //Changes color to green for 1 second after that changes it to default.
+                    d.setBackgroundColor(getResources().getColor(R.color.falseNote));
                     new CountDownTimer(1000, 1000)
                     {
 
@@ -304,6 +315,7 @@ public class MainActivity extends AppCompatActivity {
                 if(currentNote.getText().toString().equals("E"))
                 {
                     updateStreak( true);
+                    //Changes color to green for 1 second after that changes it to default.
                     e.setBackgroundColor(getResources().getColor(R.color.trueNote));
                     new CountDownTimer(1000, 1000)
                     {
@@ -322,6 +334,8 @@ public class MainActivity extends AppCompatActivity {
                 else
                 {
                     updateStreak( false);
+
+                    //Changes color to red for 1 second after that changes it to default.
                     e.setBackgroundColor(getResources().getColor(R.color.falseNote));
                     new CountDownTimer(1000, 1000)
                     {
@@ -350,6 +364,8 @@ public class MainActivity extends AppCompatActivity {
                 if(currentNote.getText().toString().equals("F"))
                 {
                     updateStreak(true);
+
+                    //Changes color to green for 1 second after that changes it to default.
                     f.setBackgroundColor(getResources().getColor(R.color.trueNote));
                     new CountDownTimer(1000, 1000)
                     {
@@ -368,6 +384,8 @@ public class MainActivity extends AppCompatActivity {
                 else
                 {
                     updateStreak(false);
+
+                    //Changes color to red for 1 second after that changes it to default.
                     f.setBackgroundColor(getResources().getColor(R.color.falseNote));
                     new CountDownTimer(1000 , 1000)
                     {
@@ -388,6 +406,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*
+    Function for updating the streak text view.
+    -If the pressed button is wrong Note, resets the streak.
+    -If the pressed button is right Note, incremenents the streak by 1.
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void updateStreak(boolean trueNote)
     {
