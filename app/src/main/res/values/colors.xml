@@ -3,4 +3,8 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#07060B</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="trueNote" >#2FC647</color>
+    <color name="falseNote" >#C62F2F</color>
+    <color name="defaultButtonColor">#1DF1DADA</color>
+
 </resources>

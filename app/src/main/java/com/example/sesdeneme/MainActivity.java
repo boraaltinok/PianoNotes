@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ButtonBarLayout;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private Button a, b, c, d, e, f, random;
 
     private SoundPool soundPool;
-    TextView currentNote;
-
+    TextView currentNote, text_streak;
+    int streak;
     private int sound_a, sound_b, sound_c, sound_d, sound_e, sound_f;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,33 @@ public class MainActivity extends AppCompatActivity {
         f = (Button)findViewById(R.id.f);
         random = (Button)findViewById(R.id.btn_random_note);
         currentNote = (TextView)findViewById(R.id.text_currentNote);
+        text_streak = (TextView)findViewById(R.id.text_streak);
+
+
+        a.setBackgroundResource(R.drawable.custom_button);
+        a.setTextColor(Color.WHITE);
+        b.setBackgroundResource(R.drawable.custom_button);
+        b.setTextColor(Color.WHITE);
+        c.setBackgroundResource(R.drawable.custom_button);
+        c.setTextColor(Color.WHITE);
+        d.setBackgroundResource(R.drawable.custom_button);
+        d.setTextColor(Color.WHITE);
+        e.setBackgroundResource(R.drawable.custom_button);
+        e.setTextColor(Color.WHITE);
+        f.setBackgroundResource(R.drawable.custom_button);
+        f.setTextColor(Color.WHITE);
+        random.setBackgroundResource(R.drawable.custom_button);
+        random.setTextColor(Color.WHITE);
+
+        text_streak.setBackgroundResource(R.drawable.custom_button);
+        text_streak.setTextColor(Color.WHITE);
+
+        streak = 0; //current streak is 0
+        text_streak.setText("STREAK: " + streak);
+
+
+
+
 
 
 
@@ -55,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
         sound_e = soundPool.load(this, R.raw.e3, 1);
         sound_f = soundPool.load(this, R.raw.f3, 1);
 
-
         final int[] notes = {sound_a, sound_b, sound_c, sound_d, sound_e, sound_f};
 
         random.setOnClickListener(new View.OnClickListener() {
@@ -64,67 +92,317 @@ public class MainActivity extends AppCompatActivity {
 
                 int random_index = (int) (Math.random() * 6);
                 soundPool.play(notes[random_index], 1, 1, 0, 0, 1);
-                    for(int i = 0; i < 10; i++) {
                          long time = System.currentTimeMillis();
-                         while (System.currentTimeMillis() != time + 1000) {
+                         //while (System.currentTimeMillis() != time + 1000) {
+                         //}
+                         char note = 'A';
+                         int i = 0;
+                         while( i != random_index)
+                         {
+                             i++;
+                             note++;
                          }
-                         random_index = (int) (Math.random() * 6);
-                        Toast.makeText(MainActivity.this, "kaka"+i, Toast.LENGTH_SHORT).show();
+                        String str = String.valueOf(note);
+
+                        currentNote.setText(str);
                         random.setClickable(true);
-
-
-                        soundPool.play(notes[random_index], 1, 1, 0, 0, 1);
-                    }
             }
         });
 
 
         a.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_a, 1, 1, 0, 0, 1);
-                char ch = 'c';
+                Toast.makeText(MainActivity.this, "NOTE: A", Toast.LENGTH_SHORT).show();
+                if(currentNote.getText().toString().equals("A"))
+                {
+                    updateStreak( true);
+                    a.setBackgroundColor(getResources().getColor(R.color.trueNote));
+                    new CountDownTimer(1000, 1000)
+                    {
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            a.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
+                else
+                {
+                    a.setBackgroundColor(getResources().getColor(R.color.falseNote));
+                    updateStreak( false);
+                    new CountDownTimer(1000, 1000)
+                    {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            a.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
 
             }
         });
 
         b.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_b, 1, 1, 0, 0, 1);
-                currentNote.setText("b");
+                Toast.makeText(MainActivity.this, "NOTE: B", Toast.LENGTH_SHORT).show();
+                if(currentNote.getText().toString().equals("B"))
+                {
+                    updateStreak( true);
+                    b.setBackgroundColor(getResources().getColor(R.color.trueNote));
+                    new CountDownTimer(1000, 1000)
+                    {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            b.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
+                else
+                {
+                    b.setBackgroundColor(getResources().getColor(R.color.falseNote));
+                    updateStreak( false);
+                    new CountDownTimer(1000, 1000)
+                    {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            b.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
+
             }
         });
 
         c.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_c, 1, 1, 0, 0, 1);
-                                                currentNote.setText("c");
+                Toast.makeText(MainActivity.this, "NOTE: C", Toast.LENGTH_SHORT).show();
+                if(currentNote.getText().toString().equals("C"))
+                {
+                    updateStreak( true);
+                    c.setBackgroundColor(getResources().getColor(R.color.trueNote));
+                    new CountDownTimer(1000, 1000)
+                    {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            c.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
+                else
+                {
+                    c.setBackgroundColor(getResources().getColor(R.color.falseNote));
+                    updateStreak( false);
+                    new CountDownTimer(1000, 1000)
+                    {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            c.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
+
 
 
             }
         });
 
         d.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_d, 1, 1, 0, 0, 1);
+                Toast.makeText(MainActivity.this, "NOTE: D", Toast.LENGTH_SHORT).show();
+                if(currentNote.getText().toString().equals("D"))
+                {
+                    updateStreak( true);
+                    d.setBackgroundColor(getResources().getColor(R.color.trueNote));
+                    new CountDownTimer(1000, 1000)
+                    {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            d.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
+                else
+                {
+                    d.setBackgroundColor(getResources().getColor(R.color.falseNote));
+                    updateStreak( false);
+                    new CountDownTimer(1000, 1000)
+                    {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            d.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
+
             }
         });
 
         e.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_e, 1, 1, 0, 0, 1);
+                Toast.makeText(MainActivity.this, "NOTE: E", Toast.LENGTH_SHORT).show();
+                if(currentNote.getText().toString().equals("E"))
+                {
+                    updateStreak( true);
+                    e.setBackgroundColor(getResources().getColor(R.color.trueNote));
+                    new CountDownTimer(1000, 1000)
+                    {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            e.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
+                else
+                {
+                    updateStreak( false);
+                    e.setBackgroundColor(getResources().getColor(R.color.falseNote));
+                    new CountDownTimer(1000, 1000)
+                    {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            e.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
+
             }
         });
 
         f.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_f, 1, 1, 0, 0, 1);
+                Toast.makeText(MainActivity.this, "NOTE: F", Toast.LENGTH_SHORT).show();
+                if(currentNote.getText().toString().equals("F"))
+                {
+                    updateStreak(true);
+                    f.setBackgroundColor(getResources().getColor(R.color.trueNote));
+                    new CountDownTimer(1000, 1000)
+                    {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            f.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
+                else
+                {
+                    updateStreak(false);
+                    f.setBackgroundColor(getResources().getColor(R.color.falseNote));
+                    new CountDownTimer(1000 , 1000)
+                    {
+
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+
+                        @Override
+                        public void onFinish() {
+                            f.setBackgroundResource(R.drawable.custom_button);
+                        }
+                    }.start();
+                }
+
             }
         });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void updateStreak(boolean trueNote)
+    {
+        TextView textView = (TextView) findViewById(R.id.text_streak);
+        boolean rightNote = true;
+        boolean falseNote = false;
+        if(Boolean.compare(trueNote, rightNote) == 0)
+        {
+            this.streak++;
+            textView.setText("STREAK: " + this.streak);
+        }
+        else
+        {
+            this.streak = 0;
+            textView.setText("STREAK: " + streak);
+        }
     }
 }
