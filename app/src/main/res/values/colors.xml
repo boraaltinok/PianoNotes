@@ -3,8 +3,25 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#07060B</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="trueNote" >#2FC647</color>
+    <color name="trueNote" >#58cc02</color>
     <color name="falseNote" >#C62F2F</color>
     <color name="defaultButtonColor">#1DF1DADA</color>
+
+    <!-- Day Theme Colors -->
+    <color name="day_white_primary" >#ffffff</color>
+
+    <color name="day_yellow_primary" >#ffde00</color>
+    <color name="day_yellow_secondary" >#ffc800</color>
+
+    <color name="day_green_primary" >#58cc02</color>
+    <color name="day_green_secondary" >#58a700</color>
+
+    <color name="day_blue_primary" >#1cb0f6</color>
+    <color name="day_blue_secondary" >#1899d6</color>
+
+    <color name="day_grey_primary" >#f0f0f0</color>
+    <color name="day_grey_secondary" >#e5e5e5</color>
+
+    <color name="day_black_primary" >#3c3c3c</color>
 
 </resources>

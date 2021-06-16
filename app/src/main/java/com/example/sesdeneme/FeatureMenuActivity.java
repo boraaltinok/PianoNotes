@@ -1,0 +1,27 @@
+package com.example.sesdeneme;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class FeatureMenuActivity extends AppCompatActivity {
+
+    private Button singleScale;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_feature_menu);
+
+        singleScale = (Button)findViewById(R.id.single_scale_btn);
+        singleScale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), SingleScaleMainActivity.class));
+                finish();
+            }
+        });
+    }
+}
