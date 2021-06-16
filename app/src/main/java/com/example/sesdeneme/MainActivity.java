@@ -4,7 +4,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ButtonBarLayout;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -23,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button a, b, c, d, e, f, random;
 
     private SoundPool soundPool;
-    TextView currentNote, text_streak;
+    TextView currentNote, text_streak, text_countdown;
     int streak;
     private int sound_a, sound_b, sound_c, sound_d, sound_e, sound_f;
     @Override
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         random = (Button)findViewById(R.id.btn_random_note);
         currentNote = (TextView)findViewById(R.id.text_currentNote);
         text_streak = (TextView)findViewById(R.id.text_streak);
+        text_countdown = (TextView)findViewById(R.id.text_countdown);
 
         //setting buttons backgrounds to custom and text colors to white
         a.setBackgroundResource(R.drawable.custom_button);
@@ -62,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
 
         streak = 0; //current streak is 0
         text_streak.setText("STREAK: " + streak);
+        text_countdown.setVisibility(View.GONE);
+
+        currentNote.setVisibility(View.GONE);
+
 
 
 
@@ -92,8 +100,38 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                int random_index = (int) (Math.random() * 6);
-                soundPool.play(notes[random_index], 1, 1, 0, 0, 1);
+                final int random_index = (int) (Math.random() * 6);
+                text_countdown.setVisibility(View.VISIBLE);
+
+                new CountDownTimer(3000, 1000)
+                {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        text_countdown.setText("COUNTDOWN FOR NEW NOTE : " + millisUntilFinished/1000);
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        //text_countdown.setVisibility(View.GONE);
+                        soundPool.play(notes[random_index], 1, 1, 0, 0, 1);
+                        long time = System.currentTimeMillis();
+                        //while (System.currentTimeMillis() != time + 1000) {
+                        //}
+                        char note = 'A';
+                        int i = 0;
+                        while( i != random_index)
+                        {
+                            i++;
+                            note++;
+                        }
+                        String str = String.valueOf(note);
+
+                        currentNote.setText(str);
+                        random.setClickable(false);
+                        random.setVisibility(View.GONE);
+                    }
+                }.start();
+                /*soundPool.play(notes[random_index], 1, 1, 0, 0, 1);
                          long time = System.currentTimeMillis();
                          //while (System.currentTimeMillis() != time + 1000) {
                          //}
@@ -107,7 +145,8 @@ public class MainActivity extends AppCompatActivity {
                         String str = String.valueOf(note);
 
                         currentNote.setText(str);
-                        random.setClickable(true);
+                        random.setClickable(false);
+                        random.setVisibility(View.GONE);*/
             }
         });
 
@@ -135,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
                             a.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    nextNoteAlert();
                 }
                 else
                 {
@@ -154,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
                             a.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    falseNoteAlert();
                 }
 
             }
@@ -183,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
                             b.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    nextNoteAlert();
                 }
                 else
                 {
@@ -202,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
                             b.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    falseNoteAlert();
                 }
 
             }
@@ -231,6 +274,7 @@ public class MainActivity extends AppCompatActivity {
                             c.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    nextNoteAlert();
                 }
                 else
                 {
@@ -250,6 +294,7 @@ public class MainActivity extends AppCompatActivity {
                             c.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    falseNoteAlert();
                 }
 
 
@@ -282,6 +327,7 @@ public class MainActivity extends AppCompatActivity {
                             d.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    nextNoteAlert();
                 }
                 else
                 {
@@ -301,6 +347,7 @@ public class MainActivity extends AppCompatActivity {
                             d.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    falseNoteAlert();
                 }
 
             }
@@ -330,6 +377,7 @@ public class MainActivity extends AppCompatActivity {
                             e.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    nextNoteAlert();
                 }
                 else
                 {
@@ -350,6 +398,7 @@ public class MainActivity extends AppCompatActivity {
                             e.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    falseNoteAlert();
                 }
 
             }
@@ -380,6 +429,7 @@ public class MainActivity extends AppCompatActivity {
                             f.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    nextNoteAlert();
                 }
                 else
                 {
@@ -400,6 +450,7 @@ public class MainActivity extends AppCompatActivity {
                             f.setBackgroundResource(R.drawable.custom_button);
                         }
                     }.start();
+                    falseNoteAlert();
                 }
 
             }
@@ -428,4 +479,78 @@ public class MainActivity extends AppCompatActivity {
             textView.setText("STREAK: " + streak);
         }
     }
+
+    public void nextNoteAlert()
+    {
+        new AlertDialog.Builder(MainActivity.this)
+                .setIcon(android.R.drawable.ic_media_play)
+                .setTitle("CONGRATS YOU PLAYED THE RIGHT NOTE")
+                .setMessage("Do you want to continue?")
+                .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        text_countdown.setVisibility(View.VISIBLE);
+
+                        new CountDownTimer(3000, 1000)
+                        {
+                            @Override
+                            public void onTick(long millisUntilFinished) {
+                                text_countdown.setText("COUNTDOWN FOR NEW NOTE : " + millisUntilFinished/1000);
+                            }
+
+                            @Override
+                            public void onFinish() {
+                                f.setBackgroundResource(R.drawable.custom_button);
+                                random.callOnClick();
+                                text_countdown.setVisibility(View.GONE);
+                            }
+                        }.start();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        updateStreak(false);
+                    }
+                })
+                .show();
+    }
+
+    public void falseNoteAlert(){
+        new AlertDialog.Builder(MainActivity.this)
+                .setIcon(android.R.drawable.ic_delete)
+                .setTitle("UPS YOU PLAYED THE WRONG NOTE ")
+                .setMessage("")
+                .setPositiveButton("TRY AGAIN", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        text_countdown.setVisibility(View.VISIBLE);
+
+                        new CountDownTimer(3000, 1000)
+                        {
+                            @Override
+                            public void onTick(long millisUntilFinished) {
+                                text_countdown.setText("COUNTDOWN FOR NEW NOTE : " + millisUntilFinished/1000);
+                            }
+
+                            @Override
+                            public void onFinish() {
+                                random.callOnClick();
+                                text_countdown.setVisibility(View.GONE);
+                            }
+                        }.start();
+
+                    }
+                })
+                .setNegativeButton("BACK TO MENU", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(getApplicationContext(), MainMenu.class);
+                        startActivity(intent);
+                    }
+                })
+                .show();
+    }
+
 }
