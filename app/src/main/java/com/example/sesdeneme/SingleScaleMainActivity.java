@@ -2,25 +2,21 @@ package com.example.sesdeneme;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.ButtonBarLayout;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class SingleScaleMainActivity extends AppCompatActivity {
     //declaration
-    private Button a, b, c, d, e, f, random;
+    private View a, b, c, d, e, f, random;
 
     private SoundPool soundPool;
     TextView currentNote, text_streak;
@@ -29,43 +25,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_single_scale_main);
 
         //initialize
-        a = (Button)findViewById(R.id.a);
-        b = (Button)findViewById(R.id.b);
-        c = (Button)findViewById(R.id.c);
-        d = (Button)findViewById(R.id.d);
-        e = (Button)findViewById(R.id.e);
-        f = (Button)findViewById(R.id.f);
+        a = (View)findViewById(R.id.btn_a);
+        b = (View)findViewById(R.id.btn_b);
+        c = (View)findViewById(R.id.btn_c);
+        d = (View)findViewById(R.id.btn_d);
+        e = (View)findViewById(R.id.btn_e);
+        f = (View)findViewById(R.id.btn_f);
         random = (Button)findViewById(R.id.btn_random_note);
         currentNote = (TextView)findViewById(R.id.text_currentNote);
         text_streak = (TextView)findViewById(R.id.text_streak);
 
-        //setting buttons backgrounds to custom and text colors to white
-        a.setBackgroundResource(R.drawable.custom_button);
-        a.setTextColor(Color.WHITE);
-        b.setBackgroundResource(R.drawable.custom_button);
-        b.setTextColor(Color.WHITE);
-        c.setBackgroundResource(R.drawable.custom_button);
-        c.setTextColor(Color.WHITE);
-        d.setBackgroundResource(R.drawable.custom_button);
-        d.setTextColor(Color.WHITE);
-        e.setBackgroundResource(R.drawable.custom_button);
-        e.setTextColor(Color.WHITE);
-        f.setBackgroundResource(R.drawable.custom_button);
-        f.setTextColor(Color.WHITE);
-        random.setBackgroundResource(R.drawable.custom_button);
-        random.setTextColor(Color.WHITE);
-        text_streak.setBackgroundResource(R.drawable.custom_button);
-        text_streak.setTextColor(Color.WHITE);
-
         streak = 0; //current streak is 0
         text_streak.setText("STREAK: " + streak);
-
-
-
-
 
 
         //creating soundPool
@@ -117,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_a, 1, 1, 0, 0, 1);
-                Toast.makeText(MainActivity.this, "NOTE: A", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SingleScaleMainActivity.this, "NOTE: A", Toast.LENGTH_SHORT).show();
                 if(currentNote.getText().toString().equals("A"))
                 {
                     updateStreak( true);
@@ -132,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            a.setBackgroundResource(R.drawable.custom_button);
+                            a.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
@@ -151,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            a.setBackgroundResource(R.drawable.custom_button);
+                            a.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
@@ -164,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_b, 1, 1, 0, 0, 1);
-                Toast.makeText(MainActivity.this, "NOTE: B", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SingleScaleMainActivity.this, "NOTE: B", Toast.LENGTH_SHORT).show();
                 if(currentNote.getText().toString().equals("B"))
                 {
                     updateStreak( true);
@@ -180,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            b.setBackgroundResource(R.drawable.custom_button);
+                            b.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
@@ -199,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            b.setBackgroundResource(R.drawable.custom_button);
+                            b.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
@@ -212,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_c, 1, 1, 0, 0, 1);
-                Toast.makeText(MainActivity.this, "NOTE: C", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SingleScaleMainActivity.this, "NOTE: C", Toast.LENGTH_SHORT).show();
                 if(currentNote.getText().toString().equals("C"))
                 {
                     updateStreak( true);
@@ -228,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            c.setBackgroundResource(R.drawable.custom_button);
+                            c.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
@@ -247,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            c.setBackgroundResource(R.drawable.custom_button);
+                            c.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
@@ -262,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_d, 1, 1, 0, 0, 1);
-                Toast.makeText(MainActivity.this, "NOTE: D", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SingleScaleMainActivity.this, "NOTE: D", Toast.LENGTH_SHORT).show();
                 if(currentNote.getText().toString().equals("D"))
                 {
                     updateStreak( true);
@@ -279,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            d.setBackgroundResource(R.drawable.custom_button);
+                            d.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
@@ -298,7 +272,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            d.setBackgroundResource(R.drawable.custom_button);
+                            d.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
@@ -311,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_e, 1, 1, 0, 0, 1);
-                Toast.makeText(MainActivity.this, "NOTE: E", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SingleScaleMainActivity.this, "NOTE: E", Toast.LENGTH_SHORT).show();
                 if(currentNote.getText().toString().equals("E"))
                 {
                     updateStreak( true);
@@ -327,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            e.setBackgroundResource(R.drawable.custom_button);
+                            e.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
@@ -347,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            e.setBackgroundResource(R.drawable.custom_button);
+                            e.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
@@ -360,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 soundPool.play(sound_f, 1, 1, 0, 0, 1);
-                Toast.makeText(MainActivity.this, "NOTE: F", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SingleScaleMainActivity.this, "NOTE: F", Toast.LENGTH_SHORT).show();
                 if(currentNote.getText().toString().equals("F"))
                 {
                     updateStreak(true);
@@ -377,7 +351,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            f.setBackgroundResource(R.drawable.custom_button);
+                            f.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
@@ -397,7 +371,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            f.setBackgroundResource(R.drawable.custom_button);
+                            f.setBackgroundResource(R.drawable.white_button);
                         }
                     }.start();
                 }
