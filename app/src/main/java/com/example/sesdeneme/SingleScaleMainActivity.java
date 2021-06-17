@@ -20,8 +20,8 @@ import com.example.sesdeneme.Models.OneScaleKeyBoard;
 import com.example.sesdeneme.Models.PianoTile;
 
 
-//TODO çıkan seslerin doğruluğu kontrol edilecek
 
+//branch için yenilik
 public class SingleScaleMainActivity extends AppCompatActivity {
     private Button randomNoteGenerator;
     private View[] noteTiles;
