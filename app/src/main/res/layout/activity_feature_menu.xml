@@ -49,13 +49,14 @@
             android:background="@drawable/primary_button"/>
 
         <Button
-            android:layout_marginTop="24dp"
+            android:id="@+id/btn_chordExercise"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textSize="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/primary_button"
+            android:text="AKOR EGZERSİZİ"
             android:textColor="@color/day_white_primary"
-            android:text="Arcade"
-            android:background="@drawable/primary_button"/>
+            android:textSize="24dp" />
 
     </LinearLayout>
 
