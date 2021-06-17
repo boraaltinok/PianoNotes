@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.example.sesdeneme.Models.OneScaleKeyBoard;
 import com.example.sesdeneme.Models.PianoTile;
 
-//TODO bu sayfa backend düzenlenecek
+
 //TODO çıkan seslerin doğruluğu kontrol edilecek
 
 public class SingleScaleMainActivity extends AppCompatActivity {
