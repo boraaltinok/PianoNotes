@@ -17,7 +17,7 @@
         android:textSize="28sp" />
 
     <Button
-        android:layout_above="@+id/text_currentNote"
+        android:layout_above="@+id/linear"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
         android:layout_centerInParent="true"
@@ -29,15 +29,28 @@
         android:backgroundTint="@color/day_blue_primary"
         android:textColor="@color/day_white_primary"
         android:text="BAŞLA" />
-    <TextView
-        android:layout_marginBottom="50sp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/text_currentNote"
+
+    <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_above="@+id/keyboard"
-        android:text="Doğru Nota: "
-        android:textSize="28sp" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="50sp">
+        <CheckBox
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="3dp"
+            android:id="@+id/show_current_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/text_currentNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doğru Nota: "
+            android:textSize="28sp" />
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/keyboard"

@@ -11,6 +11,9 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.sesdeneme.Models.OneScaleKeyBoard;
@@ -22,7 +25,8 @@ import com.example.sesdeneme.Models.PianoTile;
 public class SingleScaleMainActivity extends AppCompatActivity {
     private Button randomNoteGenerator;
     private View[] noteTiles;
-    TextView currentNote, text_streak;
+    private CheckBox showCurrentNote;
+    private TextView currentNote, text_streak;
     int streak;
     int pressedNote, randomNote;
     OneScaleKeyBoard keyBoard;
@@ -35,6 +39,7 @@ public class SingleScaleMainActivity extends AppCompatActivity {
         randomNoteGenerator= (Button)findViewById(R.id.btn_random_note);
         currentNote = (TextView)findViewById(R.id.text_currentNote);
         text_streak = (TextView)findViewById(R.id.text_streak);
+        showCurrentNote = (CheckBox)findViewById(R.id.show_current_note);
 
         noteTiles = new View[12];
         noteTiles[OneScaleKeyBoard.NOTE_A] = (View)findViewById(R.id.btn_a);
@@ -78,6 +83,9 @@ public class SingleScaleMainActivity extends AppCompatActivity {
                     if(pressedNote == randomNote){
                         view.setBackgroundColor(getResources().getColor(R.color.day_green_primary));
                         streak++;
+                        for(View v: noteTiles)
+                            v.setClickable(false);
+
                     }else {
                         view.setBackgroundColor(getResources().getColor(R.color.falseNote));
                         streak= 0;
@@ -89,6 +97,16 @@ public class SingleScaleMainActivity extends AppCompatActivity {
 
         }
 
+        showCurrentNote.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(showCurrentNote.isChecked())
+                    currentNote.setVisibility(View.INVISIBLE);
+                else
+                    currentNote.setVisibility(View.VISIBLE);
+
+            }
+        });
     }
 
     private int playRandomNote(){
@@ -108,5 +126,13 @@ public class SingleScaleMainActivity extends AppCompatActivity {
             }
 
         }.start();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        for(View v: noteTiles)
+            v.setClickable(false);
+
     }
 }
