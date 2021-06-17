@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.sesdeneme.Models.ChordExercise;
 
 public class FeatureMenuActivity extends AppCompatActivity {
 
@@ -30,8 +29,8 @@ public class FeatureMenuActivity extends AppCompatActivity {
         btn_chordExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ChordExercise.class);
-                startActivity(intent);
+                /*Intent intent = new Intent(getApplicationContext(), ChordExercise.class);
+                startActivity(intent);*/
             }
         });
     }
