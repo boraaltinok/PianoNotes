@@ -29,8 +29,8 @@ public class FeatureMenuActivity extends AppCompatActivity {
         btn_chordExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intent = new Intent(getApplicationContext(), ChordExercise.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(getApplicationContext(), ChordExercises.class);
+                startActivity(intent);
             }
         });
     }
