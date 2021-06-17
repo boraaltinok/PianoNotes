@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <layer-list>
+            <!-- YELLOW-->
+            <item>
+                <shape android:shape="oval">
+                    <size android:height="150dp" android:width="150dp"/>
+                    <solid android:color="@color/day_grey_secondary"/>
+                    <corners android:radius="75dp"/>
+                </shape>
+            </item>
+            <!-- WHITE -->
+            <item android:gravity="center">
+                <shape android:shape="oval">
+                    <size android:height="135dp" android:width="135dp"/>
+                    <solid android:color="@color/day_white_primary"/>
+                    <corners android:radius="72.5dp"/>
+                </shape>
+            </item>
+            <!-- YELLOW -->
+            <item android:gravity="center">
+                <shape android:shape="oval">
+                    <size android:height="120dp" android:width="120dp"/>
+                    <corners android:radius="60dp"/>
+                    <solid android:color="@color/day_grey_secondary"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <item  android:state_pressed="true" android:state_enabled="true">
+        <layer-list>
+            <!-- YELLOW-->
+            <item>
+                <shape android:shape="oval">
+                    <size android:height="150dp" android:width="150dp"/>
+                    <solid android:color="@color/day_yellow_primary"/>
+                    <corners android:radius="75dp"/>
+                </shape>
+            </item>
+            <!-- WHITE -->
+            <item android:gravity="center">
+                <shape android:shape="oval">
+                    <size android:height="135dp" android:width="135dp"/>
+                    <solid android:color="@color/day_white_primary"/>
+                    <corners android:radius="72.5dp"/>
+                </shape>
+            </item>
+            <!-- YELLOW -->
+            <item android:gravity="center">
+                <shape android:shape="oval">
+                    <size android:height="120dp" android:width="120dp"/>
+                    <corners android:radius="60dp"/>
+                    <solid android:color="@color/day_yellow_primary"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+    <item android:state_enabled="true">
+        <layer-list>
+            <!-- YELLOW-->
+            <item>
+                <shape android:shape="oval">
+                    <size android:height="150dp" android:width="150dp"/>
+                    <solid android:color="@color/day_yellow_secondary"/>
+                    <corners android:radius="75dp"/>
+                </shape>
+            </item>
+            <!-- WHITE -->
+            <item android:gravity="center">
+                <shape android:shape="oval">
+                    <size android:height="135dp" android:width="135dp"/>
+                    <solid android:color="@color/day_white_primary"/>
+                    <corners android:radius="72.5dp"/>
+                </shape>
+            </item>
+            <!-- YELLOW -->
+            <item android:gravity="center">
+                <shape android:shape="oval">
+                    <size android:height="120dp" android:width="120dp"/>
+                    <corners android:radius="60dp"/>
+                    <solid android:color="@color/day_yellow_secondary"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+
+</selector>
