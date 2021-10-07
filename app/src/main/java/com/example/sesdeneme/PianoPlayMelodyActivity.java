@@ -114,15 +114,18 @@ public class PianoPlayMelodyActivity extends AppCompatActivity {
 
             v.setOnTouchListener(new View.OnTouchListener() {
 
+                long time1, time2;
+
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     PianoKey pressedKey;
                     pressedKey = (PianoKey)keyboard.getVibratorFromView(v);
 
                     Note playedNote = pressedKey.getCorrespondingNote();
-                    long time1 = System.currentTimeMillis(), time2;
+
 
                     if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
+                        time1 = System.currentTimeMillis();
                         System.out.println("TIIIIIIIIIIIIIIIIIIME 1    " + time1);
                         keyboard.playNote( pressedKey);
 
