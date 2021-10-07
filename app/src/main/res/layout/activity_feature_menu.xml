@@ -58,6 +58,26 @@
             android:textColor="@color/day_white_primary"
             android:textSize="24dp" />
 
+        <Button
+            android:id="@+id/btn_melody"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/primary_button"
+            android:text="KULAKTAN MELODİ ÇALMA"
+            android:textColor="@color/day_white_primary"
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/btn_freePiano"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/primary_button"
+            android:text="SERBEST ÇALIŞMA ALANI"
+            android:textColor="@color/day_white_primary"
+            android:textSize="24dp" />
+
     </LinearLayout>
 
 

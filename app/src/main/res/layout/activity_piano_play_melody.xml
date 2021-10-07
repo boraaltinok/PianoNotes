@@ -8,49 +8,26 @@
     tools:context=".SingleScaleMainActivity">
 
     <TextView
-        android:text="Streak:"
-        android:id="@+id/text_streak"
+        android:id="@+id/text_pianoMelodyGZ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="25sp"
+        android:layout_centerHorizontal="true"
+        android:text=""
         android:textSize="28sp" />
 
     <Button
-        android:layout_above="@+id/linear"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:layout_centerInParent="true"
-        android:id="@+id/btn_random_note"
+        android:id="@+id/btn_play_melody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/circular_button"
-        android:textSize="30dp"
-        android:backgroundTint="@color/day_blue_primary"
-        android:textColor="@color/day_white_primary"
-        android:text="BAŞLA" />
-
-    <LinearLayout
-        android:id="@+id/linear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_above="@+id/keyboard"
-        android:orientation="horizontal"
-        android:layout_marginBottom="50sp">
-        <CheckBox
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="3dp"
-            android:id="@+id/show_current_note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/text_currentNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Doğru Nota: "
-            android:textSize="28sp" />
-    </LinearLayout>
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="59dp"
+        android:background="@drawable/circular_button"
+        android:backgroundTint="@color/day_blue_primary"
+        android:text="BAŞLA"
+        android:textColor="@color/day_white_primary"
+        android:textSize="30dp" />
 
     <RelativeLayout
         android:id="@+id/keyboard"
@@ -64,181 +41,191 @@
         android:padding="3pt">
 
         <View
-            android:id="@+id/f3"
+            android:id="@+id/prev_f"
             android:layout_width="10pt"
             android:layout_height="75pt"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/f3s"
+            android:id="@+id/prev_fs"
             android:layout_width="7pt"
             android:layout_height="40pt"
             android:layout_marginLeft="-4pt"
-            android:layout_toRightOf="@id/f3"
+            android:layout_toRightOf="@id/prev_f"
             android:background="@drawable/black_button" />
 
         <View
-            android:id="@+id/g3"
+            android:id="@+id/prev_g"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/f3"
+            android:layout_toRightOf="@id/prev_f"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/g3s"
+            android:id="@+id/prev_gs"
             android:layout_width="7pt"
             android:layout_height="40pt"
             android:layout_marginLeft="-4pt"
-            android:layout_toRightOf="@id/g3"
+            android:layout_toRightOf="@id/prev_g"
             android:background="@drawable/black_button" />
 
         <View
-            android:id="@+id/a3"
+            android:id="@+id/prev_a"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/g3"
+            android:layout_toRightOf="@id/prev_g"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/a3s"
+            android:id="@+id/prev_as"
             android:layout_width="7pt"
             android:layout_height="40pt"
             android:layout_marginLeft="-4pt"
-            android:layout_toRightOf="@id/a3"
+            android:layout_toRightOf="@id/prev_a"
             android:background="@drawable/black_button" />
 
         <View
-            android:id="@+id/b3"
+            android:id="@+id/prev_b"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/a3"
+            android:layout_toRightOf="@id/prev_a"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/c4"
+            android:id="@+id/c"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/b3"
+            android:layout_toRightOf="@id/prev_b"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/c4s"
+            android:id="@+id/cs"
             android:layout_width="7pt"
             android:layout_height="40pt"
             android:layout_marginLeft="-4pt"
-            android:layout_toRightOf="@id/c4"
+            android:layout_toRightOf="@id/c"
             android:background="@drawable/black_button" />
 
         <View
-            android:id="@+id/d4"
+            android:id="@+id/d"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/c4"
+            android:layout_toRightOf="@id/c"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/d4s"
+            android:id="@+id/ds"
             android:layout_width="7pt"
             android:layout_height="40pt"
             android:layout_marginLeft="-4pt"
-            android:layout_toRightOf="@id/d4"
+            android:layout_toRightOf="@id/d"
             android:background="@drawable/black_button" />
 
         <View
-            android:id="@+id/e4"
+            android:id="@+id/e"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/d4"
+            android:layout_toRightOf="@id/d"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/f4"
+            android:id="@+id/f"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/e4"
+            android:layout_toRightOf="@id/e"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/f4s"
+            android:id="@+id/fs"
             android:layout_width="7pt"
             android:layout_height="40pt"
             android:layout_marginLeft="-4pt"
-            android:layout_toRightOf="@id/f4"
+            android:layout_toRightOf="@id/f"
             android:background="@drawable/black_button" />
 
         <View
-            android:id="@+id/g4"
+            android:id="@+id/g"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/f4"
+            android:layout_toRightOf="@id/f"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/g4s"
+            android:id="@+id/gs"
             android:layout_width="7pt"
             android:layout_height="40pt"
             android:layout_marginLeft="-4pt"
-            android:layout_toRightOf="@id/g4"
+            android:layout_toRightOf="@id/g"
             android:background="@drawable/black_button" />
 
         <View
-            android:id="@+id/a4"
+            android:id="@+id/a"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/g4"
+            android:layout_toRightOf="@id/g"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/a4s"
+            android:id="@+id/as"
             android:layout_width="7pt"
             android:layout_height="40pt"
             android:layout_marginLeft="-4pt"
-            android:layout_toRightOf="@id/a4"
+            android:layout_toRightOf="@id/a"
             android:background="@drawable/black_button" />
 
         <View
-            android:id="@+id/b4"
+            android:id="@+id/b"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/a4"
+            android:layout_toRightOf="@id/a"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/c5"
+            android:id="@+id/next_c"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/b4"
+            android:layout_toRightOf="@id/b"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/c5s"
+            android:id="@+id/next_cs"
             android:layout_width="7pt"
             android:layout_height="40pt"
             android:layout_marginLeft="-4pt"
-            android:layout_toRightOf="@id/c5"
+            android:layout_toRightOf="@id/next_c"
             android:background="@drawable/black_button" />
 
         <View
-            android:id="@+id/d5"
+            android:id="@+id/next_d"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/c5"
+            android:layout_toRightOf="@id/next_c"
             android:background="@drawable/white_button" />
 
         <View
-            android:id="@+id/d5s"
+            android:id="@+id/next_ds"
             android:layout_width="7pt"
             android:layout_height="40pt"
             android:layout_marginLeft="-4pt"
-            android:layout_toRightOf="@id/d5"
+            android:layout_toRightOf="@id/next_d"
             android:background="@drawable/black_button" />
 
         <View
-            android:id="@+id/e5"
+            android:id="@+id/next_e"
             android:layout_width="10pt"
             android:layout_height="75pt"
-            android:layout_toRightOf="@id/d5"
+            android:layout_toRightOf="@id/next_d"
             android:background="@drawable/white_button" />
+
+        <TextView
+            android:id="@+id/mainSignature"
+            android:layout_alignBottom="@+id/c"
+            android:layout_alignRight="@+id/c"
+            android:layout_alignLeft="@+id/c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
     </RelativeLayout>
 
 </RelativeLayout>

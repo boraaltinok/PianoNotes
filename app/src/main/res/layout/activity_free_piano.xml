@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/keyboard1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="50sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="35dp"
+        android:background="#000"
+        android:orientation="horizontal"
+        android:padding="3pt">
+
+        <View
+            android:id="@+id/top_f"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_fs"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/top_f"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/top_g"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_f"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_gs"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/top_g"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/top_a"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_g"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_as"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/top_a"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/top_b"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_a"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_c"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_b"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_cs"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/top_c"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/top_d"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_c"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_ds"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/top_d"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/top_e"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_d"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_f2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_e"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_fs2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/top_f2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/top_g2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_f2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_gs2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/top_g2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/top_a2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_g2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_as2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/top_a2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/top_b2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_a2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_c2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_b2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_cs2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/top_c2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/top_d2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_c2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/top_ds2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/top_d2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/top_e2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/top_d2"
+            android:background="@drawable/white_button" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/keyboard2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="50sp"
+        android:background="#000"
+        android:orientation="horizontal"
+        android:padding="3pt">
+
+        <View
+            android:id="@+id/mid_f"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_fs"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/mid_f"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/mid_g"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_f"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_gs"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/mid_g"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/mid_a"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_g"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_as"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/mid_a"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/mid_b"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_a"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_c"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_b"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_cs"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/mid_c"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/mid_d"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_c"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_ds"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/mid_d"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/mid_e"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_d"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_f2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_e"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_fs2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/mid_f2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/mid_g2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_f2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_gs2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/mid_g2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/mid_a2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_g2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_as2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/mid_a2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/mid_b2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_a2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_c2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_b2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_cs2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/mid_c2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/mid_d2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_c2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/mid_ds2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/mid_d2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/mid_e2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/mid_d2"
+            android:background="@drawable/white_button" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/keyboard3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="50sp"
+        android:background="#000"
+        android:orientation="horizontal"
+        android:padding="3pt">
+
+        <View
+            android:id="@+id/bot_f"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_fs"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/bot_f"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/bot_g"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_f"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_gs"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/bot_g"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/bot_a"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_g"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_as"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/bot_a"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/bot_b"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_a"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_c"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_b"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_cs"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/bot_c"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/bot_d"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_c"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_ds"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/bot_d"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/bot_e"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_d"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_f2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_e"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_fs2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/bot_f2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/bot_g2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_f2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_gs2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/bot_g2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/bot_a2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_g2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_as2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/bot_a2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/bot_b2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_a2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_c2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_b2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_cs2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/bot_c2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/bot_d2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_c2"
+            android:background="@drawable/white_button" />
+
+        <View
+            android:id="@+id/bot_ds2"
+            android:layout_width="7pt"
+            android:layout_height="40pt"
+            android:layout_marginLeft="-4pt"
+            android:layout_toRightOf="@id/bot_d2"
+            android:background="@drawable/black_button" />
+
+        <View
+            android:id="@+id/bot_e2"
+            android:layout_width="10pt"
+            android:layout_height="75pt"
+            android:layout_toRightOf="@id/bot_d2"
+            android:background="@drawable/white_button" />
+    </RelativeLayout>
+</LinearLayout>
