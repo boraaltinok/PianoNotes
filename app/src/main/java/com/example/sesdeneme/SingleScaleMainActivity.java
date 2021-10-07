@@ -1,5 +1,5 @@
 package com.example.sesdeneme;
-/*
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 
@@ -9,14 +9,19 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.example.sesdeneme.Models.Instrument;
+import com.example.sesdeneme.Models.Note;
 import com.example.sesdeneme.Models.OneOctavePiano;
 import com.example.sesdeneme.Models.PianoKey;
+
+import java.util.Random;
 
 
 //branch için yenilik
@@ -26,8 +31,9 @@ public class SingleScaleMainActivity extends AppCompatActivity {
     private CheckBox showCurrentNote;
     private TextView currentNote, text_streak;
     int streak;
-    int pressedNote, randomNote;
     private OneOctavePiano c4keyboard;
+    Note randomNote, pressedNote;
+    private PianoKey recentlyPlayedKey;
 
     private GestureDetectorCompat mDetector;
 
@@ -73,35 +79,41 @@ public class SingleScaleMainActivity extends AppCompatActivity {
         for(View v: noteTiles)
             v.setClickable(false);
 
-        c4keyboard = new C4Keyboard(this, noteTiles);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Instrument.sp = new SoundPool.Builder().setMaxStreams(24).build();
+        }
+        else{
+            Instrument.sp = new SoundPool(24, AudioManager.STREAM_MUSIC,0);
+        }
+
+        c4keyboard = new OneOctavePiano("C4", this, noteTiles);
         streak = 0; //current streak is 0
         text_streak.setText("STREAK: " + streak);
 
         final Context context = this;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            OneOctavePiano.sp = new SoundPool.Builder().setMaxStreams(24).build();
-        }
-        else{
-            OneOctavePiano.sp = new SoundPool(24, AudioManager.STREAM_MUSIC,0);
-        }
+
 
         int soundID;
-
-        for( int i = 0; i < 24; i++){
-            soundID = OneOctavePiano.sp.load( context, c4keyboard.getKeyByIndex( i).getSoundFile(), 1);
-            c4keyboard.getKeyByIndex( i).setSoundID(soundID);
-        }
 
         randomNoteGenerator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                PianoKey playedKey;
-                playedKey = playRandomNote();
-                currentNote.setText( playedKey.getNoteName() + " (" + playedKey.getNoteName2() + ")");
+                PianoKey randomKey;
 
-                randomNote = playedKey.getNote();
+                int rnd = new Random().nextInt(c4keyboard.getVibratorArray().length);
+                randomKey = (PianoKey)c4keyboard.getVibratorArray()[rnd];
+
+                if(recentlyPlayedKey != null){
+                    c4keyboard.stopPlayingNote(recentlyPlayedKey);
+                }
+                c4keyboard.playNote(randomKey);
+                recentlyPlayedKey = randomKey;
+                
+                currentNote.setText( randomKey.getCorrespondingNote().getName() + " (" + randomKey.getCorrespondingNote().getName2() + ")");
+
+                randomNote = randomKey.getCorrespondingNote();
 
                 for(View a: noteTiles)
                     a.setClickable(true);
@@ -112,43 +124,46 @@ public class SingleScaleMainActivity extends AppCompatActivity {
         for(View view: noteTiles){
 
             /*view.setOnTouchListener(new View.OnTouchListener() {
-                @Override
+                                        @Override
 
-                public boolean onTouch(View v, MotionEvent event) {
-                    if(event.getAction() == android.view.MotionEvent.ACTION_DOWN ) {
-                        c4keyboard.playNote( c4keyboard.getIndexOfView(v));
-                    }
-                    else if(event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                        c4keyboard.stopPlaying(c4keyboard.getIndexOfView(v));
-                    }
+                                        public boolean onTouch(View v, MotionEvent event) {
+                                            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                                                c4keyboard.playNote(c4keyboard.getVibratorFromView(v));
+                                            } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                                                c4keyboard.stopPlayingNote(c4keyboard.getVibratorFromView(v));
+                                            }
 
-                    pressedNote = c4keyboard.getIndexOfView(v);
+                                            pressedNote = c4keyboard.getVibratorFromView(v).getCorrespondingNote();
 
-                    if(pressedNote == randomNote){
-                        v.setBackgroundColor(getResources().getColor(R.color.day_green_primary));
-                        streak++;
-                        for(View a: noteTiles)
-                            a.setClickable(false);
+                                            if (pressedNote.getName().equals(randomNote.getName())) {
+                                                v.setBackgroundColor(getResources().getColor(R.color.day_green_primary));
+                                                streak++;
+                                                for (View a : noteTiles)
+                                                    a.setClickable(false);
 
-                    }else {
-                        v.setBackgroundColor(getResources().getColor(R.color.falseNote));
-                        streak= 0;
-                    }
-                    text_streak.setText("STREAK: " + streak);
-                    waitSeconds(1, v);
+                                            } else {
+                                                v.setBackgroundColor(getResources().getColor(R.color.falseNote));
+                                                streak = 0;
+                                            }
+                                            text_streak.setText("STREAK: " + streak);
+                                            waitSeconds(1, v, (PianoKey) c4keyboard.getVibratorFromView(v));
 
-                    return true;
-                }
+                                            return true;
+                                        }
+                                    });*/
 
             view.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
 
-                    pressedNote = c4keyboard.getIndexOfView(v);
-                    c4keyboard.playNote( pressedNote);
-
-                    if(pressedNote == randomNote){
+                    PianoKey playedKey = (PianoKey) c4keyboard.getVibratorFromView(v);
+                    if(recentlyPlayedKey != null){
+                        c4keyboard.stopPlayingNote(recentlyPlayedKey);
+                    }
+                    c4keyboard.playNote(playedKey);
+                    recentlyPlayedKey = playedKey;
+                    if(playedKey.getCorrespondingNote().getName().equals(randomNote.getName())){
                         v.setBackgroundColor(getResources().getColor(R.color.day_green_primary));
                         streak++;
                         for(View a: noteTiles)
@@ -159,7 +174,7 @@ public class SingleScaleMainActivity extends AppCompatActivity {
                         streak= 0;
                     }
                     text_streak.setText("STREAK: " + streak);
-                    waitSeconds(1, v, c4keyboard.getKeyByIndex(pressedNote));
+                    waitSeconds(1, v, (PianoKey) c4keyboard.getVibratorFromView(v));
                 }
             });
 
@@ -177,10 +192,10 @@ public class SingleScaleMainActivity extends AppCompatActivity {
         });
     }
 
-    private PianoKey playRandomNote(){
+    /*private PianoKey playRandomNote(){
         int randomIndex = (int) (Math.random()*23);
         return (PianoKey)c4keyboard.playNote(randomIndex);
-    }
+    }*/
 
     private void waitSeconds(int x, final View v, final PianoKey pk){
         new CountDownTimer(x*1000, 1000) {
@@ -203,4 +218,4 @@ public class SingleScaleMainActivity extends AppCompatActivity {
             v.setClickable(false);
     }
 
-}*/
+}

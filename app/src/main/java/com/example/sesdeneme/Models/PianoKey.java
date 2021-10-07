@@ -46,42 +46,42 @@ public class PianoKey implements ableToPlayANote, Serializable {
     }
 
     public boolean isSharp() {
-        if( this.correspondingNote.getRank() == 1 ||
-                this.correspondingNote.getRank() == 4 ||
-                this.correspondingNote.getRank() == 6 ||
-                this.correspondingNote.getRank() == 9 ||
-                this.correspondingNote.getRank() == 11 ||
-                this.correspondingNote.getRank() == 13 ||
-                this.correspondingNote.getRank() == 16 ||
-                this.correspondingNote.getRank() == 18 ||
-                this.correspondingNote.getRank() == 21 ||
-                this.correspondingNote.getRank() == 23 ||
-                this.correspondingNote.getRank() == 25 ||
-                this.correspondingNote.getRank() == 28 ||
-                this.correspondingNote.getRank() == 30 ||
-                this.correspondingNote.getRank() == 33 ||
-                this.correspondingNote.getRank() == 35 ||
-                this.correspondingNote.getRank() == 37 ||
-                this.correspondingNote.getRank() == 40 ||
-                this.correspondingNote.getRank() == 42 ||
-                this.correspondingNote.getRank() == 45 ||
-                this.correspondingNote.getRank() == 47 ||
-                this.correspondingNote.getRank() == 49 ||
-                this.correspondingNote.getRank() == 52 ||
-                this.correspondingNote.getRank() == 54 ||
-                this.correspondingNote.getRank() == 57 ||
-                this.correspondingNote.getRank() == 59 ||
-                this.correspondingNote.getRank() == 61 ||
-                this.correspondingNote.getRank() == 64 ||
-                this.correspondingNote.getRank() == 66 ||
-                this.correspondingNote.getRank() == 69 ||
-                this.correspondingNote.getRank() == 71 ||
-                this.correspondingNote.getRank() == 73 ||
-                this.correspondingNote.getRank() == 76 ||
-                this.correspondingNote.getRank() == 78 ||
-                this.correspondingNote.getRank() == 81 ||
-                this.correspondingNote.getRank() == 83 ||
-                this.correspondingNote.getRank() == 85
+        if( this.correspondingNote.getRank() == 2 ||
+                this.correspondingNote.getRank() == 5 ||
+                this.correspondingNote.getRank() == 7 ||
+                this.correspondingNote.getRank() == 10 ||
+                this.correspondingNote.getRank() == 12 ||
+                this.correspondingNote.getRank() == 14 ||
+                this.correspondingNote.getRank() == 17 ||
+                this.correspondingNote.getRank() == 19 ||
+                this.correspondingNote.getRank() == 22 ||
+                this.correspondingNote.getRank() == 24 ||
+                this.correspondingNote.getRank() == 26 ||
+                this.correspondingNote.getRank() == 29 ||
+                this.correspondingNote.getRank() == 31 ||
+                this.correspondingNote.getRank() == 34 ||
+                this.correspondingNote.getRank() == 36 ||
+                this.correspondingNote.getRank() == 38 ||
+                this.correspondingNote.getRank() == 41 ||
+                this.correspondingNote.getRank() == 43 ||
+                this.correspondingNote.getRank() == 46 ||
+                this.correspondingNote.getRank() == 48 ||
+                this.correspondingNote.getRank() == 50 ||
+                this.correspondingNote.getRank() == 53 ||
+                this.correspondingNote.getRank() == 55 ||
+                this.correspondingNote.getRank() == 58 ||
+                this.correspondingNote.getRank() == 60 ||
+                this.correspondingNote.getRank() == 62 ||
+                this.correspondingNote.getRank() == 65 ||
+                this.correspondingNote.getRank() == 67 ||
+                this.correspondingNote.getRank() == 70 ||
+                this.correspondingNote.getRank() == 72 ||
+                this.correspondingNote.getRank() == 74 ||
+                this.correspondingNote.getRank() == 77 ||
+                this.correspondingNote.getRank() == 79 ||
+                this.correspondingNote.getRank() == 82 ||
+                this.correspondingNote.getRank() == 84 ||
+                this.correspondingNote.getRank() == 86
         ){
             return true;
         }

@@ -21,13 +21,13 @@ public class FeatureMenuActivity extends AppCompatActivity {
         btn_melody = (Button)findViewById(R.id.btn_melody);
         btn_freePiano = (Button)findViewById(R.id.btn_freePiano);
 
-        /*singleScale.setOnClickListener(new View.OnClickListener() {
+        singleScale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), SingleScaleMainActivity.class));
                 finish();
             }
-        });*/
+        });
 
         btn_chordExercise.setOnClickListener(new View.OnClickListener() {
             @Override
