@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.sesdeneme.Models.NoteWithBeats;
 import com.example.sesdeneme.Models.OneOctavePiano;
 import com.example.sesdeneme.Models.PianoKey;
+
+import java.io.Serializable;
 
 public class PianoMelodyIntermediateActivity extends AppCompatActivity {
 
@@ -24,114 +27,131 @@ public class PianoMelodyIntermediateActivity extends AppCompatActivity {
         melody3 = (Button)findViewById(R.id.pianoIntermediateMelody3);
         melody4 = (Button)findViewById(R.id.pianoIntermediateMelody4);
 
-        /*PianoKey[] mlArr1 = {new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_f, OneOctavePiano.NOTE_F, "F4", "4.OKTAV FA"),
-                new PianoKey( R.raw.x4_g, OneOctavePiano.NOTE_G, "G4", "4.OKTAV SOL"),
-                new PianoKey( R.raw.x4_g, OneOctavePiano.NOTE_G, "G4", "4.OKTAV SOL"),
-                new PianoKey( R.raw.x4_f, OneOctavePiano.NOTE_F, "F4", "4.OKTAV FA"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_c, OneOctavePiano.NOTE_C, "C4", "4.OKTAV DO"),
-                new PianoKey( R.raw.x4_c, OneOctavePiano.NOTE_C, "C4", "4.OKTAV DO"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_c, OneOctavePiano.NOTE_C, "C4", "4.OKTAV DO")};
+        final NoteWithBeats[] mlArr1 = {new NoteWithBeats( "E4", "4.OKTAV DO", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("F4", "4.OKTAV LA", "Piano", 1),
+                new NoteWithBeats("G4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("G4", "4.OKTAV SOL", "Piano", 1),
+                new NoteWithBeats("F4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV FA", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("C4", "4.OKTAV Mİ", "Piano", 1),
+                new NoteWithBeats("C4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV RE", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV DO", "Piano", 2),
+                new NoteWithBeats("C4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("C4", "4.OKTAV Sİ", "Piano", 1)
+        };
 
-        final PianoMelody ml1 = new PianoMelody( "C4", mlArr1);
+        final String mainSignature1 = "C4";
+
         melody1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), PianoPlayMelodyActivity.class);
-                intent.putExtra("melody", ml1);
+                intent.putExtra("melodyArray", (Serializable) mlArr1);
+                intent.putExtra("mainSignature", mainSignature1);
                 startActivity( intent);
                 finish();
             }
         });
 
-        PianoKey[] mlArr2 = {new PianoKey( R.raw.x4_c, OneOctavePiano.NOTE_C, "C4", "4.OKTAV DO"),
-                new PianoKey( R.raw.x4_c, OneOctavePiano.NOTE_C, "C4", "4.OKTAV DO"),
-                new PianoKey( R.raw.x4_g, OneOctavePiano.NOTE_G, "G4", "4.OKTAV SOL"),
-                new PianoKey( R.raw.x4_g, OneOctavePiano.NOTE_G, "G4", "4.OKTAV SOL"),
-                new PianoKey( R.raw.x4_a, OneOctavePiano.NOTE_A, "A4", "4.OKTAV LA"),
-                new PianoKey( R.raw.x4_a, OneOctavePiano.NOTE_A, "A4", "4.OKTAV LA"),
-                new PianoKey( R.raw.x4_g, OneOctavePiano.NOTE_G, "G4", "4.OKTAV SOL"),
-                new PianoKey( R.raw.x4_f, OneOctavePiano.NOTE_F, "F4", "4.OKTAV FA"),
-                new PianoKey( R.raw.x4_f, OneOctavePiano.NOTE_F, "F4", "4.OKTAV FA"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_c, OneOctavePiano.NOTE_C, "C4", "4.OKTAV DO"),};
 
-        final PianoMelody ml2 = new PianoMelody( "C4", mlArr2);
+        final NoteWithBeats[] mlArr2 = {new NoteWithBeats( "C4", "4.OKTAV DO", "Piano", 1),
+                new NoteWithBeats("C4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("G4", "4.OKTAV LA", "Piano", 1),
+                new NoteWithBeats("G4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("A4", "4.OKTAV SOL", "Piano", 1),
+                new NoteWithBeats("A4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("G4", "4.OKTAV FA", "Piano", 2),
+                new NoteWithBeats("F4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("F4", "4.OKTAV Mİ", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV RE", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV DO", "Piano", 1),
+                new NoteWithBeats("C4", "4.OKTAV Sİ", "Piano", 2)
+        };
+
+        final String mainSignature2 = "C4";
+
         melody2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PianoPlayMelodyActivity.class);
-                intent.putExtra("melody", ml2);
+                intent.putExtra("melodyArray", (Serializable) mlArr2);
+                intent.putExtra("mainSignature", mainSignature2);
                 startActivity( intent);
                 finish();
             }
         });
 
-        PianoKey[] mlArr3 = {new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_c, OneOctavePiano.NOTE_C, "C4", "4.OKTAV DO"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_g, OneOctavePiano.NOTE_G, "G4", "4.OKTAV SOL"),
-                new PianoKey( R.raw.x4_g, OneOctavePiano.NOTE_G, "G4", "4.OKTAV SOL"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_c, OneOctavePiano.NOTE_C, "C4", "4.OKTAV DO"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_c, OneOctavePiano.NOTE_C, "C4", "4.OKTAV DO")};
+        final NoteWithBeats[] mlArr3 = {new NoteWithBeats( "E4", "4.OKTAV DO", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("C4", "4.OKTAV LA", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV SOL", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV FA", "Piano", 2),
+                new NoteWithBeats("D4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV Mİ", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV Sİ", "Piano", 2),
+                new NoteWithBeats("E4", "4.OKTAV RE", "Piano", 1),
+                new NoteWithBeats("G4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("G4", "4.OKTAV DO", "Piano", 2),
+                new NoteWithBeats("E4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("C4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("E4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("D4", "4.OKTAV Sİ", "Piano", 1),
+                new NoteWithBeats("C4", "4.OKTAV Sİ", "Piano", 4)
+        };
 
-        final PianoMelody ml3 = new PianoMelody( "C4", mlArr3);
+        final String mainSignature3 = "C4";
+
         melody3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PianoPlayMelodyActivity.class);
-                intent.putExtra("melody", ml3);
+                intent.putExtra("melodyArray", (Serializable) mlArr3);
+                intent.putExtra("mainSignature", mainSignature3);
                 startActivity( intent);
                 finish();
             }
         });
 
         // fur elise
-        PianoKey[] mlArr4 = {new PianoKey( R.raw.x4_c, OneOctavePiano.NOTE_C, "C4", "4.OKTAV DO"),
-                new PianoKey( R.raw.x4_d, OneOctavePiano.NOTE_D, "D4", "4.OKTAV RE"),
-                new PianoKey( R.raw.x4_e, OneOctavePiano.NOTE_E, "E4", "4.OKTAV Mİ"),
-                new PianoKey( R.raw.x4_f, OneOctavePiano.NOTE_F, "F4", "4.OKTAV FA"),
-                new PianoKey( R.raw.x4_g, OneOctavePiano.NOTE_G, "G4", "4.OKTAV SOL"),
-                new PianoKey( R.raw.x4_a, OneOctavePiano.NOTE_A, "A4", "4.OKTAV LA"),
-                new PianoKey( R.raw.x4_b, OneOctavePiano.NOTE_B, "B4", "4.OKTAV Sİ")};
 
-        final PianoMelody ml4 = new PianoMelody( "C4", mlArr4);
+        final NoteWithBeats[] mlArr4 = {new NoteWithBeats( "E5", "4.OKTAV DO", "Piano", 0.5),
+                new NoteWithBeats("D#5", "4.OKTAV Sİ", "Piano", 0.5),
+                new NoteWithBeats("E5", "4.OKTAV LA", "Piano", 0.5),
+                new NoteWithBeats("D#5", "4.OKTAV Sİ", "Piano", 0.5),
+                new NoteWithBeats("E5", "4.OKTAV SOL", "Piano", 0.5),
+                new NoteWithBeats("B4", "4.OKTAV Sİ", "Piano", 0.5),
+                new NoteWithBeats("D5", "4.OKTAV FA", "Piano", 0.5),
+                new NoteWithBeats("C5", "4.OKTAV Sİ", "Piano", 0.5),
+                new NoteWithBeats("A4", "4.OKTAV Mİ", "Piano", 1),
+               };
+
+        final String mainSignature4 = "C4";
+
         melody4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PianoPlayMelodyActivity.class);
-                intent.putExtra("melody", ml4);
+                intent.putExtra("melodyArray", (Serializable) mlArr4);
+                intent.putExtra("mainSignature", mainSignature4);
                 startActivity( intent);
                 finish();
             }
-        });*/
+        });
     }
 }
